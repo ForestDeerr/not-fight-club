@@ -50,9 +50,9 @@ inputName.addEventListener("input", validateForm);
 agreeCheckbox.addEventListener("change", validateForm);
 startBtn.addEventListener("click", startGame);
 
-function generationMainPage() {
+function generationRegistrationPage() {
     mainContainer.append(inputName, checkboxContainer, startBtn);
     document.body.append(mainContainer);
 }
 
-export { generationMainPage };
+export { generationRegistrationPage };
