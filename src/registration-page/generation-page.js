@@ -1,3 +1,5 @@
+import { generationMainPage } from "../main-page/main-page.js";
+
 const mainContainer = document.createElement("div");
 mainContainer.className = "main-container";
 
@@ -32,6 +34,7 @@ function startGame() {
     startBtn.removeEventListener("click", startGame);
     localStorage.setItem("fighterName", fighterName);
     document.body.innerHTML = "";
+    generationMainPage()
 }
 
 function validateForm() {
