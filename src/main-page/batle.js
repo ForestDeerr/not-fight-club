@@ -1,14 +1,17 @@
-import { enemy, user } from "../mock/players.js";
-
-let maxHealsUser = user.healsMax;
-let maxHealsEnemy = enemy.healsMax;
-const enemyDmg = enemy.damage;
-const userDmg = user.damage;
+import { user } from "../mock/players.js";
+import { getEnemy } from "./fight.js";
 
 let allDamageUser = 0;
 let allDamageEnemy = 0;
 
 function battle() {
+  const enemy = getEnemy();
+
+  let maxHealsUser = user.healsMax;
+  let maxHealsEnemy = enemy.healsMax;
+  const enemyDmg = enemy.damage;
+  const userDmg = user.damage;
+
   allDamageUser = allDamageUser + enemyDmg;
   allDamageEnemy = allDamageEnemy + userDmg;
 

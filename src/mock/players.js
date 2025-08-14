@@ -14,6 +14,21 @@ const enemy = {
   damage: 10,
 };
 
+const enemies = [
+  {
+    name: "Мистер Ангел",
+    src: "src/images/avatar3.jpg",
+    healsMax: 130,
+    damage: 10,
+  },
+  {
+    name: "Мистер",
+    src: "src/images/avatar.jpg",
+    healsMax: 80,
+    damage: 15,
+  },
+];
+
 const fightPhrases = [
   "Бьёшь один раз, защищаешься два. Таковы правила.",
   "Один удар — две защиты. Живи по этим законам.",
@@ -29,4 +44,4 @@ const fightPhrases = [
 
 const zonesList = ["Голова", "Шея", "Тело", "Живот", "Ноги"];
 
-export { user, enemy, fightPhrases, zonesList };
+export { user, enemy, fightPhrases, zonesList, enemies };

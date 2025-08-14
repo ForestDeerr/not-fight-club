@@ -1,4 +1,5 @@
-import { enemy } from "../mock/players.js";
+import { enemies } from "../mock/players.js";
+import { getRandomFightPhrase } from "../utils/randomizer.js";
 import {
   generationBattleBtn,
   generationBattleZone,
@@ -7,6 +8,12 @@ import {
 import { createFighterContainer } from "./fighter-container.js";
 import { getMainContainer } from "./main-page.js";
 import { getMidContent } from "./mid-container.js";
+
+const enemy = getRandomFightPhrase(enemies);
+
+function getEnemy() {
+  return enemy;
+}
 
 function fight() {
   const midContainer = getMidContent();
@@ -21,4 +28,4 @@ function fight() {
   );
 }
 
-export { fight };
+export { fight, getEnemy };
