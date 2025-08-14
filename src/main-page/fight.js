@@ -18,14 +18,20 @@ function getEnemy() {
 function fight() {
   const midContainer = getMidContent();
   const mainContainer = getMainContainer();
+  const fighterContainer = createFighterContainer(
+    "right",
+    enemy,
+    enemy.healsMax
+  );
 
-  mainContainer.append(createFighterContainer("right", enemy, enemy.healsMax));
+  mainContainer.append(fighterContainer);
   midContainer.replaceChildren();
   midContainer.append(
     generationInfoTitle(),
     generationBattleZone(),
     generationBattleBtn()
   );
+  fighterContainer.classList.add("show");
 }
 
 export { fight, getEnemy };

@@ -16,10 +16,9 @@ function getMainContainer() {
 }
 
 function generationMainPage(name) {
-  mainContainer.append(
-    createFighterContainer("left", user, user.healsMax),
-    createRulesBlock()
-  );
+  const fighterContainer = createFighterContainer("left", user, user.healsMax);
+  mainContainer.append(fighterContainer, createRulesBlock());
+  fighterContainer.classList.add("show");
   document.body.append(mainContainer);
 }
 

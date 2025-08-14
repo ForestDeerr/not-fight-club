@@ -7,8 +7,15 @@ midContainer.className = "container-mid";
 
 function startFight() {
   const mainContainer = getMainContainer();
+
+  const midContainer = generationMidContent();
+
   getRulesContainer().remove();
-  mainContainer.append(generationMidContent());
+  mainContainer.append(midContainer);
+
+  requestAnimationFrame(() => {
+    midContainer.classList.add("show");
+  });
 }
 
 export { startFight };
