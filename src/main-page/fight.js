@@ -12,7 +12,7 @@ function fight() {
   const midContainer = getMidContent();
   const mainContainer = getMainContainer();
 
-  mainContainer.append(createFighterContainer("right", enemy, 93));
+  mainContainer.append(createFighterContainer("right", enemy, enemy.healsMax));
   midContainer.replaceChildren();
   midContainer.append(
     generationInfoTitle(),

@@ -17,7 +17,7 @@ function getMainContainer() {
 
 function generationMainPage(name) {
   mainContainer.append(
-    createFighterContainer("left", user, 43),
+    createFighterContainer("left", user, user.healsMax),
     createRulesBlock()
   );
   document.body.append(mainContainer);

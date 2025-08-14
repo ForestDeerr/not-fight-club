@@ -12,7 +12,7 @@ function generationFighter(user, actualHeals) {
 
   const heals = document.createElement("div");
   heals.className = "heals";
-  heals.style.width = `${actualHeals}%`;
+  heals.style.width = `${100}%`;
 
   const healsTitle = document.createElement("p");
   healsTitle.className = "heals-title";
