@@ -1,3 +1,9 @@
+const rulesContainer = document.createElement("div");
+
+function getRulesContainer() {
+  return rulesContainer;
+}
+
 function createRulesBlock() {
   const rules = [
     "1. Не рассказывать о Бойцовском клубе.",
@@ -10,7 +16,6 @@ function createRulesBlock() {
     "8. Если это твой первый вечер в Бойцовском клубе — ты должен драться.",
   ];
 
-  const rulesContainer = document.createElement("div");
   rulesContainer.className = "rules-container";
 
   let delay = 0;
@@ -26,4 +31,4 @@ function createRulesBlock() {
   return rulesContainer;
 }
 
-export { createRulesBlock };
+export { createRulesBlock, getRulesContainer };

@@ -11,14 +11,16 @@ rightContainer.className = "container-right";
 const midContainer = document.createElement("div");
 midContainer.className = "container-mid";
 
+function getMainContainer() {
+  return mainContainer;
+}
+
 function generationMainPage(name) {
   mainContainer.append(
     createFighterContainer("left", user, 43),
-    createRulesBlock(),
-    // midContainer,
-    // createFighterContainer("right", user, 93),
+    createRulesBlock()
   );
   document.body.append(mainContainer);
 }
 
-export { generationMainPage };
+export { generationMainPage, getMainContainer };

@@ -29,4 +29,4 @@ function createFighterContainer(position, user, actualHeals) {
   return container;
 }
 
-export {createFighterContainer}
+export { createFighterContainer };

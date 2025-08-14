@@ -2,6 +2,18 @@ button {
     cursor: pointer;
 }
 
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+label {
+    display: flex;
+    gap: 10px;
+    flex-direction: row;
+    align-items: center;
+}
+
 .container {
     display: flex;
     flex-direction: row;
@@ -49,6 +61,7 @@ button {
     width: 73%;
     height: 100%;
     background-color: #00ff11;
+    transition: all 0.3s ease;
 }
 
 .heals-title {
@@ -59,8 +72,13 @@ button {
 }
 
 .container-mid {
+    display: flex;
     width: 40%;
     border: 2px solid #000000;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
 }
 
 .rules-container {
@@ -70,13 +88,26 @@ button {
     align-items: center;
     padding: 0 30px;
     justify-content: center;
-     text-align: center;
-     font-size: 18px;
+    text-align: center;
+    font-size: 18px;
 }
 
 .rule-text {
     opacity: 0;
     animation: fadeInBlink 1s ease forwards;
+}
+
+.zone-container {
+    display: flex;
+    gap: 20px;
+}
+
+.attack-zones,
+.defense-zones {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
 }
 
 @keyframes fadeInBlink {

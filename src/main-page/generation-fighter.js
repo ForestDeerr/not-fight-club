@@ -9,6 +9,7 @@ function generationFighter(user, actualHeals) {
   img.alt = "Боец";
   const healsBar = document.createElement("div");
   healsBar.className = "heals-bar";
+
   const heals = document.createElement("div");
   heals.className = "heals";
   heals.style.width = `${actualHeals}%`;
@@ -22,4 +23,4 @@ function generationFighter(user, actualHeals) {
   return fighterContainer;
 }
 
-export {generationFighter}
+export { generationFighter };

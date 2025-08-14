@@ -1,5 +1,6 @@
 import { createButton } from "../utils/create-button.js";
-import { fightIcon,settingsIcon, characterIcon } from "./icons.js";
+import { fightIcon, settingsIcon, characterIcon } from "./icons.js";
+import { startFight } from "./start-fight.js";
 
 function renderNavigationPanel() {
   const navigationPanel = document.createElement("div");
@@ -9,7 +10,8 @@ function renderNavigationPanel() {
     type: "button",
     className: "btn",
     onClick: () => {
-      console.log("клац");
+      fightBtn.disabled = true;
+      startFight();
     },
     iconSvg: fightIcon,
     iconClass: "my-icon-class",
@@ -40,4 +42,4 @@ function renderNavigationPanel() {
   return navigationPanel;
 }
 
-export {renderNavigationPanel}
+export { renderNavigationPanel };
