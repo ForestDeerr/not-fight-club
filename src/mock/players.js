@@ -7,25 +7,22 @@ const user = {
   damage: 8,
 };
 
-const enemy = {
-  name: "Мистер Ангел",
-  src: "src/images/avatar3.jpg",
-  healsMax: 130,
-  damage: 10,
-};
-
 const enemies = [
   {
     name: "Мистер Ангел",
     src: "src/images/avatar3.jpg",
     healsMax: 130,
     damage: 10,
+    attack: 1,
+    defense: 2,
   },
   {
     name: "Мистер",
     src: "src/images/avatar.jpg",
     healsMax: 80,
-    damage: 15,
+    damage: 10,
+    attack: 2,
+    defense: 2,
   },
 ];
 
@@ -44,4 +41,4 @@ const fightPhrases = [
 
 const zonesList = ["Голова", "Шея", "Тело", "Живот", "Ноги"];
 
-export { user, enemy, fightPhrases, zonesList, enemies };
+export { user, fightPhrases, zonesList, enemies };
