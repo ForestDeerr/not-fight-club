@@ -6,6 +6,7 @@ import {
   generationInfoTitle,
 } from "./fight-panel.js";
 import { createFighterContainer } from "./fighter-container.js";
+import { generationLogContainer } from "./log-container.js";
 import { getMainContainer } from "./main-page.js";
 import { getMidContent } from "./mid-container.js";
 
@@ -18,6 +19,7 @@ function getEnemy() {
 function fight() {
   const midContainer = getMidContent();
   const mainContainer = getMainContainer();
+  const logContainer = generationLogContainer();
   const fighterContainer = createFighterContainer(
     "right",
     enemy,
@@ -31,6 +33,7 @@ function fight() {
     generationBattleZone(),
     generationBattleBtn()
   );
+  document.body.append(logContainer);
   fighterContainer.classList.add("show");
 }
 

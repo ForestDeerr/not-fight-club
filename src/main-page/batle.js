@@ -1,7 +1,10 @@
 import { user } from "../mock/players.js";
 import { checkMove } from "../utils/check-move.js";
 import { generateRandomMoves } from "../utils/random-moves.js";
+import { createAttackLine } from "./create-log-attack-line.js";
+import { createDefLine } from "./create-log-def-line.js";
 import { getEnemy } from "./fight.js";
+import { generationLogContainer, getLogContent } from "./log-container.js";
 
 let allDamageUser = 0;
 let allDamageEnemy = 0;
@@ -51,11 +54,13 @@ function battle() {
 
   resultUser.forEach((hit) => {
     allDamageEnemy += hit[1];
-    console.log(
-      `${user.name} бьет ${enemy.name} по ${hit[0]} и наносит ${
-        hit[1] === userDmg ? hit[1] : `${hit[1]} критического`
-      } урона`
-    );
+    if (hit[1] != 0) {
+      getLogContent().prepend(
+        createAttackLine(user.name, enemy.name, hit[0], hit[1], userDmg)
+      );
+    } else {
+      getLogContent().prepend(createDefLine(user.name, enemy.name, hit[0]));
+    }
   });
 
   resultEnemy.forEach((hit) => {
