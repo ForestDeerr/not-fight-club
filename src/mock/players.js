@@ -5,6 +5,8 @@ const user = {
   src: "src/images/avatar2.jpg",
   healsMax: 100,
   damage: 8,
+  chance: 0.6,
+  crit: 2,
 };
 
 const enemies = [
@@ -15,6 +17,8 @@ const enemies = [
     damage: 10,
     attack: 1,
     defense: 2,
+    chance: 0.5,
+    crit: 1.9,
   },
   {
     name: "Мистер",
@@ -23,6 +27,8 @@ const enemies = [
     damage: 10,
     attack: 2,
     defense: 2,
+    chance: 0.2,
+    crit: 2.5,
   },
 ];
 

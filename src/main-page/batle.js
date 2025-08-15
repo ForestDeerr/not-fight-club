@@ -34,11 +34,33 @@ function battle() {
     })),
   ];
 
-  const damageDoneUser = checkMove(userMove, enemyMove, userDmg);
-  const damageDoneEnemy = checkMove(enemyMove, userMove, enemyDmg);
+  const resultUser = checkMove(
+    userMove,
+    enemyMove,
+    userDmg,
+    user.chance,
+    user.crit
+  );
+  const resultEnemy = checkMove(
+    enemyMove,
+    userMove,
+    enemyDmg,
+    enemy.chance,
+    enemy.crit
+  );
 
-  allDamageEnemy += damageDoneUser;
-  allDamageUser += damageDoneEnemy;
+  resultUser.forEach((hit) => {
+    allDamageEnemy += hit[1];
+    console.log(
+      `${user.name} бьет ${enemy.name} по ${hit[0]} и наносит ${
+        hit[1] === userDmg ? hit[1] : `${hit[1]} критического`
+      } урона`
+    );
+  });
+
+  resultEnemy.forEach((hit) => {
+    allDamageUser += hit[1];
+  });
 
   const heals = document.querySelectorAll(".heals");
   const healsTitle = document.querySelectorAll(".heals-title");
