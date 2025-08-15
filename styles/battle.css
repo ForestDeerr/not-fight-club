@@ -1,0 +1,42 @@
+.line {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    animation: fadeInBlink 1s ease forwards;
+}
+
+.line-blue {
+    color: #497dff;
+    font-weight: 700;
+}
+
+.line-red {
+    color: #ff4949;
+    font-weight: 700;
+}
+
+.line-black {
+    font-weight: 700;
+}
+
+@keyframes fadeInBlink {
+    0% {
+        opacity: 0;
+    }
+
+    40% {
+        opacity: 1;
+    }
+
+    60% {
+        opacity: 0.5;
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
