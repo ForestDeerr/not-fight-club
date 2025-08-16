@@ -4,7 +4,7 @@ import { generateRandomMoves } from "../utils/random-moves.js";
 import { createAttackLine } from "./create-log-attack-line.js";
 import { createDefLine } from "./create-log-def-line.js";
 import { getEnemy } from "./fight.js";
-import { generationLogContainer, getLogContent } from "./log-container.js";
+import { getLogContent } from "./log-container.js";
 
 let allDamageUser = 0;
 let allDamageEnemy = 0;
@@ -59,12 +59,30 @@ function battle() {
         createAttackLine(user.name, enemy.name, hit[0], hit[1], userDmg)
       );
     } else {
-      getLogContent().prepend(createDefLine(user.name, enemy.name, hit[0]));
+      getLogContent().prepend(
+        createDefLine(user.name, enemy.name, hit[0], "left")
+      );
     }
   });
 
   resultEnemy.forEach((hit) => {
     allDamageUser += hit[1];
+    if (hit[1] != 0) {
+      getLogContent().prepend(
+        createAttackLine(
+          enemy.name,
+          user.name,
+          hit[0],
+          hit[1],
+          enemyDmg,
+          "right"
+        )
+      );
+    } else {
+      getLogContent().prepend(
+        createDefLine(enemy.name, user.name, hit[0], "right")
+      );
+    }
   });
 
   const heals = document.querySelectorAll(".heals");

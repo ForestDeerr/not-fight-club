@@ -1,11 +1,11 @@
-function createAttackLine(name, enemy, zone, dmg, defDmg) {
+function createAttackLine(name, enemy, zone, dmg, defDmg, position) {
   const user = document.createElement("p");
   user.className = "line-blue";
   user.textContent = name;
 
   const text = document.createElement("p");
   text.className = "line-text";
-  text.textContent = "бъет";
+  text.textContent = " целится в";
 
   const enemyTitle = document.createElement("p");
   enemyTitle.className = "line-blue";
@@ -13,7 +13,7 @@ function createAttackLine(name, enemy, zone, dmg, defDmg) {
 
   const text2 = document.createElement("p");
   text2.className = "line-text";
-  text2.textContent = "по";
+  text2.textContent = "кулак пробивает";
 
   const zoneTitle = document.createElement("p");
   zoneTitle.className = "line-blue";
@@ -21,14 +21,14 @@ function createAttackLine(name, enemy, zone, dmg, defDmg) {
 
   const text3 = document.createElement("p");
   text3.className = "line-text";
-  text3.textContent = "и наносит";
+  text3.textContent = "единиц боли.";
 
   const dmgUser = document.createElement("p");
   dmgUser.textContent = dmg;
 
   const text4 = document.createElement("p");
   text4.className = "line-red";
-  text4.textContent = "критического";
+  text4.textContent = "критических";
 
   function checkDmg() {
     if (dmg > defDmg) {
@@ -46,23 +46,22 @@ function createAttackLine(name, enemy, zone, dmg, defDmg) {
     return null;
   }
 
-  const text5 = document.createElement("p");
-  text5.className = "line-text";
-  text5.textContent = "урона";
-
   const container = document.createElement("div");
   container.className = "line";
+
+  if (position === "right") {
+    container.style.justifyContent = "flex-end";
+  }
 
   container.append(
     user,
     text,
+    zoneTitle,
     enemyTitle,
     text2,
-    zoneTitle,
-    text3,
     checkDmg(),
     checkCrit() ? checkCrit() : [],
-    text5
+    text3
   );
 
   return container;

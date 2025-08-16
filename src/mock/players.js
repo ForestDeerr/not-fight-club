@@ -5,7 +5,7 @@ const user = {
   src: "src/images/avatar2.jpg",
   healsMax: 100,
   damage: 8,
-  chance: 0.6,
+  chance: 1,
   crit: 2,
 };
 
@@ -21,7 +21,7 @@ const enemies = [
     crit: 1.9,
   },
   {
-    name: "Мистер",
+    name: "Тайлер Дёрден",
     src: "src/images/avatar.jpg",
     healsMax: 80,
     damage: 10,

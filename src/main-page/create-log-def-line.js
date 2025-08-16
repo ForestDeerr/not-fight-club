@@ -1,6 +1,10 @@
-function createDefLine(name, enemy, zone) {
+function createDefLine(name, enemy, zone, position) {
   const container = document.createElement("div");
   container.className = "line";
+
+  if (position === "right") {
+    container.style.justifyContent = "flex-end";
+  }
 
   const name1 = document.createElement("p");
   name1.className = "line-blue";

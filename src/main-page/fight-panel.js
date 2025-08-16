@@ -16,7 +16,7 @@ function createAttackZones(zones) {
   container.className = "attack-zones";
 
   const title = document.createElement("h3");
-  title.textContent = "Attack Zones";
+  title.textContent = "Зоны для кулаков";
   container.appendChild(title);
 
   zones.forEach((zone) => {
@@ -52,7 +52,7 @@ function createDefenseZones(zones) {
   container.className = "defense-zones";
 
   const title = document.createElement("h3");
-  title.textContent = "Defense Zones";
+  title.textContent = "Стена мышц";
   container.appendChild(title);
 
   zones.forEach((zone) => {
