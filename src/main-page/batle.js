@@ -5,6 +5,7 @@ import { createAttackLine } from "./create-log-attack-line.js";
 import { createDefLine } from "./create-log-def-line.js";
 import { getEnemy } from "./fight.js";
 import { getLogContent } from "./log-container.js";
+import { updateHeals } from "./update-heals.js";
 
 let allDamageUser = 0;
 let allDamageEnemy = 0;
@@ -85,26 +86,8 @@ function battle() {
     }
   });
 
-  const heals = document.querySelectorAll(".heals");
-  const healsTitle = document.querySelectorAll(".heals-title");
-
-  const healsUser = heals[0];
-  const titleUser = healsTitle[0];
-  const actualHealsUser = maxHealsUser - allDamageUser;
-  const actualHealsUserPercent = (actualHealsUser * 100) / maxHealsUser;
-
-  const healsEnemy = heals[1];
-  const titleEnemy = healsTitle[1];
-  const actualHealsEnemy = maxHealsEnemy - allDamageEnemy;
-  const actualHealsEnemyPercent = (actualHealsEnemy * 100) / maxHealsEnemy;
-
-  healsUser.style.width = `${actualHealsUserPercent}%`;
-  titleUser.textContent = `${actualHealsUser}/${maxHealsUser}`;
-
-  healsEnemy.style.width = `${actualHealsEnemyPercent}%`;
-  titleEnemy.textContent = `${actualHealsEnemy}/${maxHealsEnemy}`;
-
-  console.log(actualHealsEnemy);
+  updateHeals("user", maxHealsUser, allDamageUser);
+  updateHeals("enemy", maxHealsEnemy, allDamageEnemy);
 }
 
 export { battle };
