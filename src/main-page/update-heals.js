@@ -17,7 +17,7 @@ function updateHeals(side, maxHeals, allDamage) {
     title.textContent = `0/${maxHeals}`;
   } else {
     bar.style.width = `${actualHealsPercent}%`;
-    title.textContent = `${actualHeals}/${maxHeals}`;
+    title.textContent = `${Math.round(actualHeals * 10) / 10}/${maxHeals}`;
   }
 }
 
