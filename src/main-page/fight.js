@@ -10,21 +10,27 @@ import { generationLogContainer } from "./log-container.js";
 import { getMainContainer } from "./main-page.js";
 import { getMidContent } from "./mid-container.js";
 
-const enemy = getRandomFightPhrase(enemies);
-
 function getEnemy() {
+  const enemy = JSON.parse(localStorage.getItem("enemy"));
   return enemy;
 }
 
 function fight() {
+  const loadEnemy = JSON.parse(localStorage.getItem("enemy"));
+  let enemy;
+
+  if (loadEnemy) {
+    enemy = loadEnemy;
+  } else {
+    enemy = getRandomFightPhrase(enemies);
+    localStorage.setItem("enemy", JSON.stringify(enemy));
+  }
+
+  const fighterContainer = createFighterContainer("right", enemy);
+
   const midContainer = getMidContent();
   const mainContainer = getMainContainer();
   const logContainer = generationLogContainer();
-  const fighterContainer = createFighterContainer(
-    "right",
-    enemy,
-    enemy.healsMax
-  );
 
   mainContainer.append(fighterContainer);
   midContainer.replaceChildren();

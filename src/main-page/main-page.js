@@ -1,4 +1,3 @@
-import { user } from "../mock/players.js";
 import { createFighterContainer } from "./fighter-container.js";
 import { createRulesBlock } from "./rules.js";
 
@@ -15,8 +14,8 @@ function getMainContainer() {
   return mainContainer;
 }
 
-function generationMainPage(name) {
-  const fighterContainer = createFighterContainer("left", user, user.healsMax);
+function generationMainPage(user) {
+  const fighterContainer = createFighterContainer("left", user);
   mainContainer.append(fighterContainer, createRulesBlock());
   fighterContainer.classList.add("show");
   document.body.append(mainContainer);

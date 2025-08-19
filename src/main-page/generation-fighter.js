@@ -1,4 +1,4 @@
-function generationFighter(user, actualHeals) {
+function generationFighter(user) {
   const src = user.src;
   const maxHeals = user.healsMax;
 
@@ -16,7 +16,7 @@ function generationFighter(user, actualHeals) {
 
   const healsTitle = document.createElement("p");
   healsTitle.className = "heals-title";
-  healsTitle.textContent = `${actualHeals}/${maxHeals}`;
+  healsTitle.textContent = `${maxHeals}/${maxHeals}`;
   healsBar.append(heals, healsTitle);
 
   fighterContainer.append(img, healsBar);

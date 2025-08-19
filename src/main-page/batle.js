@@ -7,12 +7,10 @@ import { getEnemy } from "./fight.js";
 import { getLogContent } from "./log-container.js";
 import { updateHeals } from "./update-heals.js";
 
-let allDamageUser = 0;
-let allDamageEnemy = 0;
-
 function battle() {
+  let allDamageUser = Number(localStorage.getItem("allDamageUser"));
+  let allDamageEnemy = Number(localStorage.getItem("allDamageEnemy"));
   const enemy = getEnemy();
-
   let maxHealsUser = user.healsMax;
   let maxHealsEnemy = enemy.healsMax;
   const enemyDmg = enemy.damage;
@@ -54,7 +52,7 @@ function battle() {
   );
 
   resultUser.forEach((hit) => {
-    allDamageEnemy += hit[1];
+    localStorage.setItem("allDamageEnemy", (allDamageEnemy += hit[1]));
     if (hit[1] != 0) {
       getLogContent().prepend(
         createAttackLine(user.name, enemy.name, hit[0], hit[1], userDmg)
@@ -67,7 +65,7 @@ function battle() {
   });
 
   resultEnemy.forEach((hit) => {
-    allDamageUser += hit[1];
+    localStorage.setItem("allDamageUser", (allDamageUser += hit[1]));
     if (hit[1] != 0) {
       getLogContent().prepend(
         createAttackLine(

@@ -8,7 +8,7 @@ function renderNavigationPanel() {
 
   const fightBtn = createButton({
     type: "button",
-    className: "btn",
+    className: "startBattleBtn",
     onClick: () => {
       fightBtn.disabled = true;
       startFight();

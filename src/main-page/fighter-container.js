@@ -1,7 +1,7 @@
 import { generationFighter } from "./generation-fighter.js";
 import { renderNavigationPanel } from "./navigation-panel.js";
 
-function createFighterContainer(position, user, actualHeals) {
+function createFighterContainer(position, user) {
   const name = user.name;
   let container;
 
@@ -25,7 +25,7 @@ function createFighterContainer(position, user, actualHeals) {
     headBar.append(renderNavigationPanel());
   }
 
-  container.append(headBar, generationFighter(user, actualHeals));
+  container.append(headBar, generationFighter(user));
   return container;
 }
 
