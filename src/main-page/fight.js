@@ -6,6 +6,7 @@ import {
   generationInfoTitle,
 } from "./fight-panel.js";
 import { createFighterContainer } from "./fighter-container.js";
+import { loadLog } from "./load-log.js";
 import { generationLogContainer } from "./log-container.js";
 import { getMainContainer } from "./main-page.js";
 import { getMidContent } from "./mid-container.js";
@@ -40,6 +41,7 @@ function fight() {
     generationBattleBtn()
   );
   document.body.append(logContainer);
+  loadLog();
   fighterContainer.classList.add("show");
 }
 

@@ -19,6 +19,7 @@ function finishBattle(side) {
   localStorage.setItem("allDamageUser", 0);
   localStorage.setItem("allDamageEnemy", 0);
   localStorage.removeItem("enemy");
+  localStorage.removeItem("fightLog");
 
   const win = getRandomFightPhrase(winPhrases);
   const lose = getRandomFightPhrase(losePhrases);
