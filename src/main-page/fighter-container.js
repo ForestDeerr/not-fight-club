@@ -1,6 +1,12 @@
 import { generationFighter } from "./generation-fighter.js";
 import { renderNavigationPanel } from "./navigation-panel.js";
 
+let fighterNameGlobal = null;
+
+function getFighterName() {
+  return fighterNameGlobal;
+}
+
 function createFighterContainer(position, user) {
   const name = user.name;
   let container;
@@ -21,6 +27,8 @@ function createFighterContainer(position, user) {
   fighterName.textContent = name;
   headBar.append(fighterName);
 
+  fighterNameGlobal = fighterName;
+
   if (position === "left") {
     headBar.append(renderNavigationPanel());
   }
@@ -29,4 +37,4 @@ function createFighterContainer(position, user) {
   return container;
 }
 
-export { createFighterContainer };
+export { createFighterContainer, getFighterName };

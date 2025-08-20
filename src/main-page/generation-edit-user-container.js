@@ -1,5 +1,7 @@
 import { keyMap } from "../mock/players.js";
 import { createButton } from "../utils/create-button.js";
+import { updateFightLog } from "../utils/update-fight-log.js";
+import { getFighterName } from "./fighter-container.js";
 import { editIcon, applyIcon } from "./icons.js";
 
 function generationEditUserContainer() {
@@ -37,6 +39,7 @@ function generationEditUserContainer() {
     characteristicsUser.append(userKey, loadUserValues);
 
     if (key === "name") {
+      const oldName = loadUser[key];
       const editNameUser = createButton({
         type: "button",
         className: "edit-user-btn",
@@ -50,7 +53,13 @@ function generationEditUserContainer() {
             editNameUser.setIcon(editIcon);
             const fighterName = inputName.value.trim();
             loadUserValues.textContent = fighterName;
+
+            loadUser.name = fighterName;
+            localStorage.setItem("user", JSON.stringify(loadUser));
+            getFighterName().textContent = fighterName;
             characteristicsUser.replaceChild(loadUserValues, inputName);
+
+            updateFightLog(oldName, fighterName);
           }
         },
         iconSvg: editIcon,
