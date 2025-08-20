@@ -1,18 +1,22 @@
 import { getRulesContainer } from "./rules.js";
 import { getMainContainer } from "./main-page.js";
-import { generationMidContent } from "./mid-container.js";
+import { generationMidContent, getMidContent } from "./mid-container.js";
 import { getTitleEndBattle } from "./finish-battle.js";
 import { getLogContent } from "./log-container.js";
 import { enemies } from "../mock/players.js";
 import { getRandomFightPhrase } from "../utils/randomizer.js";
+
 
 const midContainer = document.createElement("div");
 midContainer.className = "container-mid";
 
 function startFight() {
   const mainContainer = getMainContainer();
-  const midContainer = generationMidContent();
 
+  const editUserContainer = document.querySelector(".editUser")
+  if(editUserContainer) {editUserContainer.remove();}
+  
+  const midContainer = generationMidContent();
   getRulesContainer().remove();
   mainContainer.append(midContainer);
 
