@@ -16,6 +16,8 @@ function finishBattle(side) {
   const startBattleBtn = document.querySelector(".startBattleBtn");
   startBattleBtn.disabled = false;
 
+  const loadUser = JSON.parse(localStorage.getItem("user"));
+
   localStorage.setItem("allDamageUser", 0);
   localStorage.setItem("allDamageEnemy", 0);
   localStorage.removeItem("enemy");
@@ -26,8 +28,12 @@ function finishBattle(side) {
 
   if (side === "user") {
     titleEndBattle.textContent = lose;
+    loadUser.loses = loadUser.loses + 1;
+    localStorage.setItem("user", JSON.stringify(loadUser));
   } else {
     titleEndBattle.textContent = win;
+    loadUser.wins = loadUser.wins + 1;
+    localStorage.setItem("user", JSON.stringify(loadUser));
   }
 
   const midContainer = getMidContent();

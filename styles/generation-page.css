@@ -105,6 +105,10 @@ body {
     height: 30px;
 }
 
+.user-key {
+    font-weight: bold;
+}
+
 .characteristics-user {
     display: flex;
     gap: 10px;

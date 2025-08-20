@@ -3,6 +3,8 @@ const name = localStorage.getItem("fighterName");
 const user = {
   name: name,
   src: "src/images/avatar2.jpg",
+  wins: 0,
+  loses: 0,
   healsMax: 100,
   damage: 8,
   chance: 0.8,
@@ -76,6 +78,8 @@ const losePhrases = [
 const zonesList = ["Голова", "Шея", "Тело", "Живот", "Ноги"];
 
 const keyMap = {
+  wins: "Кровавые победы",
+  loses: "Горькие поражения",
   name: "Твое имя в клубе",
   healsMax: "Запас мяса",
   damage: "Сила удара",
