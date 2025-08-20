@@ -1,4 +1,5 @@
 import { createButton } from "../utils/create-button.js";
+import { editUser } from "./edit-user.js";
 import { fightIcon, settingsIcon, characterIcon } from "./icons.js";
 import { startFight } from "./start-fight.js";
 
@@ -11,9 +12,22 @@ function renderNavigationPanel() {
     className: "startBattleBtn",
     onClick: () => {
       fightBtn.disabled = true;
+      characterBtn.disabled = false;
       startFight();
     },
     iconSvg: fightIcon,
+    iconClass: "my-icon-class",
+  });
+
+  const characterBtn = createButton({
+    type: "button",
+    className: "editUserBtn",
+    onClick: () => {
+      fightBtn.disabled = false;
+      characterBtn.disabled = true;
+      editUser();
+    },
+    iconSvg: characterIcon,
     iconClass: "my-icon-class",
   });
 
@@ -24,16 +38,6 @@ function renderNavigationPanel() {
       console.log("клац");
     },
     iconSvg: settingsIcon,
-    iconClass: "my-icon-class",
-  });
-
-  const characterBtn = createButton({
-    type: "button",
-    className: "btn",
-    onClick: () => {
-      console.log("клац");
-    },
-    iconSvg: characterIcon,
     iconClass: "my-icon-class",
   });
 

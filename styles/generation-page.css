@@ -71,6 +71,46 @@ body {
     opacity: 0;
 }
 
+.edit-user {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    padding: 0 20px;
+}
+
+.edit-user-btn {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    color: #000000;
+}
+
+.edit-user-btn:hover {
+    color: #3feb00;
+    transition: all 0.3s ease;
+}
+
+.name-container {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.name-user {
+    font-size: 26px;
+    line-height: 26px;
+    height: 30px;
+}
+
+.characteristics-user {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
 @keyframes pulseGlow {
 
     0%,

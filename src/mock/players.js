@@ -75,4 +75,21 @@ const losePhrases = [
 
 const zonesList = ["Голова", "Шея", "Тело", "Живот", "Ноги"];
 
-export { user, fightPhrases, zonesList, enemies, winPhrases, losePhrases };
+const keyMap = {
+  name: "Твое имя в клубе",
+  healsMax: "Запас мяса",
+  damage: "Сила удара",
+  chance: "Шанс сорваться с цепи",
+  crit: "Множитель ярости",
+  src: "Лицо на афише",
+};
+
+export {
+  user,
+  fightPhrases,
+  zonesList,
+  enemies,
+  winPhrases,
+  losePhrases,
+  keyMap,
+};
