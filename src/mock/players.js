@@ -2,7 +2,7 @@ const name = localStorage.getItem("fighterName");
 
 const user = {
   name: name,
-  src: "src/images/avatar2.jpg",
+  src: "src/images/marla1.jpg",
   wins: 0,
   loses: 0,
   healsMax: 100,
@@ -88,6 +88,12 @@ const keyMap = {
   src: "Лицо на афише",
 };
 
+const avatars = [
+  "src/images/marla.jpg",
+  "src/images/marla1.jpg",
+  "src/images/marla3.jpg",
+];
+
 export {
   user,
   fightPhrases,
@@ -96,4 +102,5 @@ export {
   winPhrases,
   losePhrases,
   keyMap,
+  avatars,
 };

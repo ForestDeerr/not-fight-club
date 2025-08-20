@@ -5,6 +5,7 @@ function generationFighter(user) {
   const fighterContainer = document.createElement("div");
   fighterContainer.className = "fighter-container";
   const img = document.createElement("img");
+  img.className = "avatar";
   img.src = src;
   img.alt = "Боец";
   const healsBar = document.createElement("div");

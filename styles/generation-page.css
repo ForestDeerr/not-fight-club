@@ -115,6 +115,14 @@ body {
     align-items: center;
 }
 
+.select-avatar {
+    cursor: pointer;
+}
+
+.option-avatar {
+    cursor: pointer;
+}
+
 @keyframes pulseGlow {
 
     0%,

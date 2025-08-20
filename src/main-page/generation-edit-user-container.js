@@ -1,4 +1,4 @@
-import { keyMap } from "../mock/players.js";
+import { avatars, keyMap } from "../mock/players.js";
 import { createButton } from "../utils/create-button.js";
 import { updateFightLog } from "../utils/update-fight-log.js";
 import { getFighterName } from "./fighter-container.js";
@@ -32,11 +32,39 @@ function generationEditUserContainer() {
     userKey.className = "user-key";
     userKey.textContent = `${keyMap[key]}: `;
 
-    const loadUserValues = document.createElement("p");
-    loadUserValues.className = "load-user-values";
-    loadUserValues.textContent = loadUser[key];
+    let valueElement;
 
-    characteristicsUser.append(userKey, loadUserValues);
+    if (key === "src") {
+      const select = document.createElement("select");
+      select.className = "select-avatar";
+
+      avatars.forEach((avatar, index) => {
+        const option = document.createElement("option");
+        option.className = "option-avatar";
+        option.value = avatar;
+        option.textContent = `Лицо ${index}`;
+        if (loadUser.src === avatar) option.selected = true;
+        select.appendChild(option);
+      });
+
+      select.addEventListener("change", () => {
+        loadUser.src = select.value;
+        localStorage.setItem("user", JSON.stringify(loadUser));
+        const img = document.querySelector(".user-avatar");
+        if (img) img.src = select.value;
+        const avatar = document.querySelector(".avatar");
+        avatar.src = select.value;
+      });
+
+      valueElement = select;
+    } else {
+      const loadUserValues = document.createElement("p");
+      loadUserValues.className = "load-user-values";
+      loadUserValues.textContent = loadUser[key];
+      valueElement = loadUserValues;
+    }
+
+    characteristicsUser.append(userKey, valueElement);
 
     if (key === "name") {
       const oldName = loadUser[key];
