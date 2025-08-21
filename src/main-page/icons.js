@@ -2,7 +2,7 @@ const fightIcon = `<svg version="1.0" xmlns="http://www.w3.org/2000/svg"
  width="18px" height="25px" viewBox="0 0 902.000000 1280.000000"
  preserveAspectRatio="xMidYMid meet">
 <g transform="translate(0.000000,1280.000000) scale(0.100000,-0.100000)"
-fill="#000000" stroke="none">
+fill="currentColor" stroke="none">
 <path d="M5825 12784 c-545 -98 -1113 -366 -1935 -914 -606 -404 -1118 -631
 -1678 -745 -334 -68 -455 -183 -632 -605 -103 -248 -198 -398 -303 -479 -38
 -29 -68 -65 -100 -119 -104 -176 -220 -296 -557 -571 -321 -262 -477 -424

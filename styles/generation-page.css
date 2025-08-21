@@ -127,6 +127,27 @@ body {
     font-weight: bold;
 }
 
+.startBattleBtn {
+    animation: pulse 1.5s infinite;
+}
+
+.startBattleBtn:disabled {
+    animation: none;
+    filter: none;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        filter: drop-shadow(0 0 4px crimson);
+    }
+
+    50% {
+        filter: drop-shadow(0 0 12px crimson);
+    }
+}
+
 @keyframes pulseGlow {
 
     0%,

@@ -81,6 +81,16 @@ function generationEditUserContainer() {
         select.appendChild(option);
       });
 
+      const editAvatarUser = createButton({
+        type: "button",
+        className: "edit-user-btn",
+        onClick: () => {
+          select.showPicker();
+        },
+        iconSvg: editIcon,
+        iconClass: "my-icon-class",
+      });
+
       select.addEventListener("change", () => {
         const loadUsers = JSON.parse(localStorage.getItem("users"));
         const loadUser = JSON.parse(localStorage.getItem("user"));
@@ -168,7 +178,7 @@ function generationEditUserContainer() {
         localStorage.setItem("user", JSON.stringify(loadUser));
       });
 
-      characteristicsUser.append(editUserSrc, select);
+      characteristicsUser.append(editUserSrc, select, editAvatarUser);
       container.append(characteristicsUser);
     }
 
