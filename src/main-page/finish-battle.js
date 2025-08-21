@@ -36,6 +36,15 @@ function finishBattle(side) {
     localStorage.setItem("user", JSON.stringify(loadUser));
   }
 
+  let user = JSON.parse(localStorage.getItem("user"));
+  let users = JSON.parse(localStorage.getItem("users")) || [];
+  const index = users.findIndex((u) => u.src === user.src);
+  if (index !== -1) {
+    users[index].wins = user.wins;
+    users[index].loses = user.loses;
+  }
+  localStorage.setItem("users", JSON.stringify(users));
+
   const midContainer = getMidContent();
   midContainer.replaceChildren();
   midContainer.append(titleEndBattle);

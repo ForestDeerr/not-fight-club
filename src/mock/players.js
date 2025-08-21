@@ -11,6 +11,35 @@ const user = {
   crit: 2,
 };
 
+const users = [
+  {
+    src: "src/images/marla.jpg",
+    wins: 0,
+    loses: 0,
+    healsMax: 100,
+    damage: 8,
+    chance: 0.8,
+    crit: 2,
+    log: [],
+    dmgE: 0,
+    dmgU: 0,
+    enemy: {},
+  },
+  {
+    src: "src/images/marla1.jpg",
+    wins: 0,
+    loses: 0,
+    healsMax: 80,
+    damage: 10,
+    chance: 0.4,
+    crit: 1.2,
+    log: [],
+    dmgE: 0,
+    dmgU: 0,
+    enemy: {},
+  },
+];
+
 const enemies = [
   {
     name: "Мистер Ангел",
@@ -88,11 +117,7 @@ const keyMap = {
   src: "Лицо на афише",
 };
 
-const avatars = [
-  "src/images/marla.jpg",
-  "src/images/marla1.jpg",
-  "src/images/marla3.jpg",
-];
+const avatars = ["src/images/marla.jpg", "src/images/marla1.jpg"];
 
 export {
   user,
@@ -103,4 +128,5 @@ export {
   losePhrases,
   keyMap,
   avatars,
+  users,
 };

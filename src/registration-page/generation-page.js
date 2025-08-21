@@ -1,5 +1,5 @@
 import { generationMainPage } from "../main-page/main-page.js";
-import { user } from "../mock/players.js";
+import { user, users } from "../mock/players.js";
 
 const mainContainer = document.createElement("div");
 mainContainer.className = "main-container";
@@ -42,6 +42,8 @@ function startGame() {
 
   const loadUser = JSON.parse(localStorage.getItem("user"));
   generationMainPage(loadUser);
+
+  localStorage.setItem("users", JSON.stringify(users));
 }
 
 function validateForm() {
