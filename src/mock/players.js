@@ -2,37 +2,37 @@ const name = localStorage.getItem("fighterName");
 
 const user = {
   name: name,
-  src: "src/images/marla1.jpg",
+  src: "src/images/women.jpg",
   wins: 0,
   loses: 0,
-  healsMax: 100,
-  damage: 8,
-  chance: 0.8,
-  crit: 2,
+  healsMax: 110,
+  damage: 7,
+  chance: 0.75,
+  crit: 1.8,
 };
 
 const users = [
   {
-    src: "src/images/marla.jpg",
+    src: "src/images/women.jpg",
     wins: 0,
     loses: 0,
-    healsMax: 100,
-    damage: 8,
-    chance: 0.8,
-    crit: 2,
+    healsMax: 110,
+    damage: 7,
+    chance: 0.75,
+    crit: 1.8,
     log: [],
     dmgE: 0,
     dmgU: 0,
     enemy: {},
   },
   {
-    src: "src/images/marla1.jpg",
+    src: "src/images/men.jpg",
     wins: 0,
     loses: 0,
-    healsMax: 80,
-    damage: 10,
-    chance: 0.4,
-    crit: 1.2,
+    healsMax: 90,
+    damage: 11,
+    chance: 0.65,
+    crit: 2.2,
     log: [],
     dmgE: 0,
     dmgU: 0,
@@ -44,32 +44,32 @@ const enemies = [
   {
     name: "Мистер Ангел",
     src: "src/images/avatar3.jpg",
-    healsMax: 130,
-    damage: 10,
+    healsMax: 90,
+    damage: 7,
     attack: 1,
-    defense: 2,
-    chance: 0.5,
-    crit: 1.9,
-  },
-  {
-    name: "Тайлер Дёрден",
-    src: "src/images/avatar.jpg",
-    healsMax: 80,
-    damage: 10,
-    attack: 2,
-    defense: 2,
-    chance: 0.2,
-    crit: 2.5,
+    defense: 1,
+    chance: 0.55,
+    crit: 1.5,
   },
   {
     name: "Боб",
     src: "src/images/avatar4.jpg",
-    healsMax: 180,
-    damage: 16,
-    attack: 1,
-    defense: 1,
-    chance: 0.2,
-    crit: 1.3,
+    healsMax: 120,
+    damage: 10,
+    attack: 2,
+    defense: 2,
+    chance: 0.45,
+    crit: 2.0,
+  },
+  {
+    name: "Тайлер Дёрден",
+    src: "src/images/avatar.jpg",
+    healsMax: 160,
+    damage: 13,
+    attack: 2,
+    defense: 3,
+    chance: 0.35,
+    crit: 2.2,
   },
 ];
 
@@ -107,17 +107,25 @@ const losePhrases = [
 const zonesList = ["Голова", "Шея", "Тело", "Живот", "Ноги"];
 
 const keyMap = {
-  wins: "Кровавые победы",
-  loses: "Горькие поражения",
-  name: "Твое имя в клубе",
-  healsMax: "Запас мяса",
-  damage: "Сила удара",
-  chance: "Шанс сорваться с цепи",
-  crit: "Множитель ярости",
-  src: "Лицо на афише",
+  wins: "Кровавые победы:",
+  loses: "Горькие поражения:",
+  name: "Твое имя в клубе:",
+  healsMax: "Запас мяса:",
+  damage: "Сила удара:",
+  chance: "Шанс сорваться с цепи:",
+  crit: "Множитель ярости:",
+  src: "Лицо на афише:",
 };
 
-const avatars = ["src/images/marla.jpg", "src/images/marla1.jpg"];
+const avatars = [
+  { face: "men", src: "src/images/men.jpg" },
+  { face: "women", src: "src/images/women.jpg" },
+];
+
+const avatarsMap = {
+  men: "Мужское",
+  women: "Женское",
+};
 
 export {
   user,
@@ -129,4 +137,5 @@ export {
   keyMap,
   avatars,
   users,
+  avatarsMap,
 };

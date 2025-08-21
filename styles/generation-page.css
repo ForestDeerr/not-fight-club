@@ -123,6 +123,10 @@ body {
     cursor: pointer;
 }
 
+.edit-user-name {
+    font-weight: bold;
+}
+
 @keyframes pulseGlow {
 
     0%,

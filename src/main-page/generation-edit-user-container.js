@@ -1,4 +1,4 @@
-import { avatars, keyMap } from "../mock/players.js";
+import { avatars, avatarsMap, keyMap } from "../mock/players.js";
 import { createButton } from "../utils/create-button.js";
 import { updateFightLog } from "../utils/update-fight-log.js";
 import { getFighterName } from "./fighter-container.js";
@@ -72,12 +72,12 @@ function generationEditUserContainer() {
       characteristicsUser.className = "characteristics-user";
       editUserSrc.textContent = keyMap[key];
 
-      avatars.forEach((avatar, index) => {
+      avatars.forEach((avatar) => {
         const option = document.createElement("option");
         option.className = "option-avatar";
-        option.value = avatar;
-        option.textContent = `Лицо ${index}`;
-        if (loadUser.src === avatar) option.selected = true;
+        option.value = avatar.src;
+        option.textContent = avatarsMap[avatar.face];
+        if (loadUser.src === avatar.src) option.selected = true;
         select.appendChild(option);
       });
 
@@ -87,6 +87,12 @@ function generationEditUserContainer() {
         const selectedUser = loadUsers.find((u) => u.src === select.value);
         const unSelectedUser = loadUsers.find((u) => u.src != select.value);
         const enemy = JSON.parse(localStorage.getItem("enemy"));
+
+        unSelectedUser.wins = loadUser.wins;
+        unSelectedUser.loses = loadUser.loses;
+
+        loadUser.wins = selectedUser.wins;
+        loadUser.loses = selectedUser.loses;
 
         const avatarUser = document.querySelector(".avatar");
         avatarUser.src = selectedUser.src;
@@ -113,8 +119,8 @@ function generationEditUserContainer() {
           localStorage.setItem("enemy", JSON.stringify(selectedUser.enemy));
           localStorage.setItem("allDamageUser", selectedUser.dmgU);
           localStorage.setItem("allDamageEnemy", selectedUser.dmgE);
-        }else{
-          localStorage.removeItem("enemy")
+        } else {
+          localStorage.removeItem("enemy");
         }
 
         const editUserHealsMaxValue = container.querySelector(
@@ -135,17 +141,29 @@ function generationEditUserContainer() {
         editUserChanceValue.textContent = selectedUser.chance;
         loadUser.chance = selectedUser.chance;
 
+        const editUserWinsValue = container.querySelector(
+          ".edit-user-wins-value"
+        );
+        editUserWinsValue.textContent = selectedUser.wins;
+        loadUser.wins = selectedUser.wins;
+
+        const editUserLosesValue = container.querySelector(
+          ".edit-user-loses-value"
+        );
+        editUserLosesValue.textContent = selectedUser.loses;
+        loadUser.loses = selectedUser.loses;
+
         const editUserCritValue = container.querySelector(
           ".edit-user-crit-value"
         );
         editUserCritValue.textContent = selectedUser.crit;
         loadUser.crit = selectedUser.crit;
 
-const heals = document.querySelector(".heals");
-  heals.style.width = `${100}%`;
+        const heals = document.querySelector(".heals");
+        heals.style.width = `${100}%`;
 
-    const healsTitle = document.querySelector(".heals-title");
-   healsTitle.textContent = `${selectedUser.healsMax}/${selectedUser.healsMax}`;
+        const healsTitle = document.querySelector(".heals-title");
+        healsTitle.textContent = `${selectedUser.healsMax}/${selectedUser.healsMax}`;
 
         localStorage.setItem("user", JSON.stringify(loadUser));
       });
@@ -158,7 +176,7 @@ const heals = document.querySelector(".heals");
     editUserWins.className = "edit-user-name";
 
     const editUserWinsValue = document.createElement("p");
-    editUserWinsValue.className = "edit-user-name-value";
+    editUserWinsValue.className = "edit-user-wins-value";
 
     if (key === "wins") {
       const characteristicsUser = document.createElement("div");
@@ -174,15 +192,15 @@ const heals = document.querySelector(".heals");
     editUserLoses.className = "edit-user-name";
 
     const editUserLosesValue = document.createElement("p");
-    editUserLosesValue.className = "edit-user-name-value";
+    editUserLosesValue.className = "edit-user-loses-value";
 
     if (key === "loses") {
       const characteristicsUser = document.createElement("div");
       characteristicsUser.className = "characteristics-user";
 
       editUserLoses.textContent = keyMap[key];
-      editUserWinsValue.textContent = loadUser[key];
-      characteristicsUser.append(editUserLoses, editUserWinsValue);
+      editUserLosesValue.textContent = loadUser[key];
+      characteristicsUser.append(editUserLoses, editUserLosesValue);
       container.append(characteristicsUser);
     }
 
@@ -249,7 +267,6 @@ const heals = document.querySelector(".heals");
       characteristicsUser.append(editUserCrit, editUserCritValue);
       container.append(characteristicsUser);
     }
-
   }
 
   return container;
