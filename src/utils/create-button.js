@@ -20,8 +20,21 @@ function createButton({
 
   if (iconSvg) {
     iconWrapper = document.createElement("span");
-    iconWrapper.innerHTML = iconSvg.trim();
     if (iconClass) iconWrapper.className = iconClass;
+
+    if (
+      iconSvg.endsWith(".png") ||
+      iconSvg.endsWith(".jpg") ||
+      iconSvg.endsWith(".jpeg") ||
+      iconSvg.endsWith(".gif")
+    ) {
+      const img = document.createElement("img");
+      img.src = iconSvg;
+      iconWrapper.appendChild(img);
+    } else {
+      iconWrapper.innerHTML = iconSvg.trim();
+    }
+
     button.appendChild(iconWrapper);
   }
 

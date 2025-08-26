@@ -1,6 +1,7 @@
 import { createButton } from "../utils/create-button.js";
 import { editUser } from "./edit-user.js";
 import { fightIcon, settingsIcon, characterIcon } from "./icons.js";
+import { resetGameData } from "./reset-game.js";
 import { startFight } from "./start-fight.js";
 
 function renderNavigationPanel() {
@@ -31,13 +32,15 @@ function renderNavigationPanel() {
     iconClass: "my-icon-class",
   });
 
+
+
   const settingBtn = createButton({
     type: "button",
     className: "btn",
     onClick: () => {
-      console.log("клац");
-    },
-    iconSvg: settingsIcon,
+      resetGameData();
+      },
+    iconSvg: "src/images/exit.png",
     iconClass: "my-icon-class",
   });
 
